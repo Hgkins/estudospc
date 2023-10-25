@@ -1,2 +1,1 @@
-# estudospc
-Um Repositório de Pensamento Computacional
+<CODETYPE! html>
