@@ -65,7 +65,7 @@
 
     <section>
         <h2>Exemplo de Avião de Papelão</h2>
-        <img src="aviao_papelao.jpg" alt="Avião de Papelão">
+        <img src="avião de papelão.jpg" alt="Avião de Papelão">
     </section>
 
     <footer>
