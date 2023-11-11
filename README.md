@@ -32,7 +32,7 @@
 <body>
 
     <header>
-        <h1>Receita de Pizza de Calabresa</h1>
+        <h1>Receita de Pitça de Calaboca</h1>
     </header>
 
     <section>
