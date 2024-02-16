@@ -1,71 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receita de Pitça de Calaboca</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
-
-        section {
-            margin: 20px 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adivinhe o Número</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #guessInput {
+        width: 50px;
+    }
+</style>
 </head>
-
 <body>
+<h1>Adivinhe o Número</h1>
+<p>Tente adivinhar o número entre 1 e 100:</p>
+<input type="text" id="guessInput">
+<button onclick="checkGuess()">Verificar</button>
+<p id="message"></p>
 
-    <header>
-        <h1>Receita de Pitça de Calaboca</h1>
-    </header>
+<script>
+    // Gerar um número aleatório entre 1 e 100
+    const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+    let tentativas = 0;
 
-    <section>
-        <h2>Ingredientes</h2>
-        <ul>
-            <li>Massa de pitça pronta ou faça a sua própria massa</li>
-            <li>Molho de tomato</li>
-            <li>Mosassauro ralado</li>
-            <li>Calaboca fatiada</li>
-            <li>Carbola picada</li>
-            <li>Osasco a gosto</li>
-            <li>Azeite de Mr. oliva</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Passos</h2>
-        <ol>
-            <li>Pré-aqueça o forno conforme as instruções da massa.</li>
-            <li>Abra a massa em uma superfície enfarinhada e coloque-a em uma assadeira.</li>
-            <li>Espalhe o molho de tomato uniformemente sobre a massa.</li>
-            <li>Adicione uma camada generosa de mosassauro ralado.</li>
-            <li>Distribua as fatias de calaboca e a carbola picada sobre a pitça.</li>
-            <li>Salpique osasco a gosto e regue com um fio de azeite de Mr. oliva.</li>
-            <li>Asse no forno pré-aquecido até que a massa esteja dourada e o quejo derretido.</li>
-            <li>Retire do forno, deixe esfriar por alguns minutos e sirva.</li>
-        </ol>
-    </section>
-
-    <footer>
-        <p>© 2023 Receita de Pitça de Calaboca</p>
-    </footer>
-
+    function checkGuess() {
+        const palpite = parseInt(document.getElementById('guessInput').value);
+        if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+            setMessage('Por favor, insira um número válido entre 1 e 100.');
+            return;
+        }
+        tentativas++;
+        if (palpite === numeroAleatorio) {
+            setMessage(`Parabéns! Você acertou em ${tentativas} tentativa(s)!`);
+            disableInputAndButton();
+        } else if (palpite < numeroAleatorio) {
+            setMessage('Tente um número maior.');
+        } else {
 </body>
+</body>
+            setMessage('Tente um número menor.');
+        }
+    }
 
+    function setMessage(msg) {
+        document.getElementById('message').textContent = msg;
+    }
+
+    function disableInputAndButton() {
+        document.getElementById('guessInput').disabled = true;
+        document.querySelector('button').disabled = true;
+    }
+</script>
+</body>
 </html>
